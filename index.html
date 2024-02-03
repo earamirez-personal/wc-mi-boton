@@ -8,12 +8,40 @@
 </head>
 
 <body>
+    <template id="boton-template">
+        <style>
+            button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 14px 20px;
+                margin: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        </style>
+        <h1 id="__TITULO__">Hola</h1>
+        <button id="__BUTTON__">
+            <slot name="content">Click me</slot>
+        </button>
+    </template>
+
     <main>
-        <h1>Mi Botón</h1>
-        <mi-boton>Mi texto de Botón</mi-boton>
+        <mi-boton titulo="Nuevo Botón" alerta-message="¡Hola!"><span slot="content">Mi texto de Botón</span></mi-boton>
     </main>
 
     <script src="mi-boton.js"></script>
+    <script>
+        window.onload = function () {
+            const boton = document.querySelector("mi-boton");
+
+            if (boton) {
+                boton.addEventListener("seleccionar", function (e) {
+                    alert(e.detail.mensaje);
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>
