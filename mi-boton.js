@@ -23,7 +23,7 @@ class MiBoton extends HTMLElement {
       if (h1Element) h1Element.innerText = titulo;
 
       if (buttonElement) {
-        buttonElement.addEventListener("click", function (e) {
+        buttonElement.addEventListener("click", (e) {
           e.preventDefault();
 
           this.dispatchEvent(
